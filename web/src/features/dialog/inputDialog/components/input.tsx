@@ -16,8 +16,8 @@ const InputField: React.FC<Props> = (props) => {
       {!props.row.password ? (
         <TextInput
           {...props.register}
-          //@ts-expect-error
-          leftSection={<LibIcon icon={props.row.icon}/>}
+          // @ts-expect-error
+          leftSection={props.row.icon ? <LibIcon icon={props.row.icon} /> : undefined}
           defaultValue={props.row.default}
           label={props.row.label}
           description={props.row.description}
@@ -31,7 +31,7 @@ const InputField: React.FC<Props> = (props) => {
         <PasswordInput
           {...props.register}
           //@ts-expect-error
-          leftSection={<LibIcon icon={props.row.icon}/>}
+          leftSection={props.row.icon ? <LibIcon icon={props.row.icon} /> : undefined}
           defaultValue={props.row.default}
           label={props.row.label}
           description={props.row.description}

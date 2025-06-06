@@ -21,8 +21,8 @@ const SelectField: React.FC<Props> = (props) => {
     <>
       {props.row.type === 'select' ? (
         <Select
-          //@ts-expect-error
-          leftSection={<LibIcon icon={props.row.icon}/>}
+          // @ts-expect-error
+          leftSection={props.row.icon ? <LibIcon icon={props.row.icon} /> : undefined}
           data={props.row.options}
           value={controller.field.value}
           name={controller.field.name}
@@ -40,8 +40,8 @@ const SelectField: React.FC<Props> = (props) => {
         <>
           {props.row.type === 'multi-select' && (
             <MultiSelect
-              //@ts-expect-error
-              leftSection={<LibIcon icon={props.row.icon}/>}
+              // @ts-expect-error
+              leftSection={props.row.icon ? <LibIcon icon={props.row.icon} /> : undefined}
               data={props.row.options}
               value={controller.field.value}
               name={controller.field.name}

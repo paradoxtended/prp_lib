@@ -20,8 +20,8 @@ const NumberField: React.FC<Props> = (props) => {
 
   return (
     <NumberInput
-      //@ts-expect-error
-      leftSection={<LibIcon icon={props.row.icon}/>}
+      // @ts-expect-error
+      leftSection={props.row.icon ? <LibIcon icon={props.row.icon} /> : undefined}
       value={controller.field.value}
       name={controller.field.name}
       ref={controller.field.ref}
