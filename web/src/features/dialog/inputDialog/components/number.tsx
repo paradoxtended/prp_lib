@@ -2,6 +2,7 @@ import { NumberInput } from '@mantine/core';
 import type { INumber } from '../../../../typings/dialog';
 import { type Control, useController } from 'react-hook-form';
 import type { FormValues } from '../InputDialog';
+import LibIcon from '../../../../components/LibIcon';
 
 interface Props {
   row: INumber;
@@ -19,6 +20,8 @@ const NumberField: React.FC<Props> = (props) => {
 
   return (
     <NumberInput
+      //@ts-expect-error
+      leftSection={<LibIcon icon={props.row.icon}/>}
       value={controller.field.value}
       name={controller.field.name}
       ref={controller.field.ref}
@@ -32,6 +35,7 @@ const NumberField: React.FC<Props> = (props) => {
       step={props.row.step}
       disabled={props.row.disabled}
       withAsterisk={props.row.required}
+      decimalScale={props.row.precision}
     />
   );
 };

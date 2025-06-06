@@ -2,6 +2,7 @@ import { MultiSelect, Select } from '@mantine/core';
 import type { ISelect } from '../../../../typings/dialog';
 import { type Control, useController } from 'react-hook-form';
 import type { FormValues } from '../InputDialog';
+import LibIcon from '../../../../components/LibIcon';
 
 interface Props {
   row: ISelect;
@@ -20,6 +21,8 @@ const SelectField: React.FC<Props> = (props) => {
     <>
       {props.row.type === 'select' ? (
         <Select
+          //@ts-expect-error
+          leftSection={<LibIcon icon={props.row.icon}/>}
           data={props.row.options}
           value={controller.field.value}
           name={controller.field.name}
@@ -37,6 +40,8 @@ const SelectField: React.FC<Props> = (props) => {
         <>
           {props.row.type === 'multi-select' && (
             <MultiSelect
+              //@ts-expect-error
+              leftSection={<LibIcon icon={props.row.icon}/>}
               data={props.row.options}
               value={controller.field.value}
               name={controller.field.name}

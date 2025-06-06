@@ -27,7 +27,7 @@ const Dev: React.FC = () => {
         </ActionIcon>
       </Tooltip>
 
-      <Drawer position="left" onClose={() => setOpened(false)} opened={opened} title="Developer drawer" padding="xl">
+      <Drawer position="left" closeOnClickOutside={true} onClose={() => setOpened(false)} opened={opened} title="Developer drawer" padding="xl">
         <Stack>
           <Divider />
           <Button fullWidth onClick={() => debugInput()}>

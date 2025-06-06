@@ -12,16 +12,18 @@ export const debugInput = () => {
             type: 'input',
             label: 'Locker number',
             placeholder: '420',
-            description: 'Description that tells you what this input field does'
+            description: 'Description that tells you what this input field does',
+            icon: 'envelope'
           },
           {
             type: 'time',
             format: '12',
             label: 'Locker Time',
             description: 'Description that tells you what this input field does',
+            icon: 'envelope'
           },
           { type: 'checkbox', label: 'Some checkbox' },
-          { type: 'input', label: 'Locker PIN', password: true, icon: 'lock' },
+          { type: 'input', label: 'Locker PIN', placeholder: '5762', password: true, icon: 'lock' },
           { type: 'checkbox', label: 'Some other checkbox', checked: true },
           {
             type: 'select',
@@ -31,6 +33,7 @@ export const debugInput = () => {
               { value: 'option2', label: 'Option 2' },
               { value: 'option3', label: 'Option 3' },
             ],
+            icon: 'envelope'
           },
           {
             type: 'number',
