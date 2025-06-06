@@ -11,12 +11,12 @@ import { isEnvBrowser } from './utils/misc';
 
 const theme = createTheme({
     fontFamily: 'Montserrat, sans-serif',
-    primaryColor: 'lime',
+    primaryColor: 'lime'
 });
 
 const App: React.FC = () => {
     return (
-        <MantineProvider theme={theme} defaultColorScheme='dark'>
+        <MantineProvider theme={theme} forceColorScheme='dark'>
             <Progressbar />
             <CircleProgressbar />
             <Notifications />
