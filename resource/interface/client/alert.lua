@@ -1,11 +1,12 @@
--- This is not our script, as you can see bellow, it's thelindat's code, we've just edited some lines
-
+---@meta
 --[[
     https://github.com/overextended/ox_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
     Copyright © 2025 Linden <https://github.com/thelindat>
+
+    This code is basically Linden's code, we've just edited some lines to our preferencies, but 99% of the code is Linden's ox_lib code
 ]]
 
 ---@type promise?
