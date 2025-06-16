@@ -30,3 +30,7 @@ shared_scripts {
 client_scripts {
     'resource/**/client/*.lua'
 }
+
+server_scripts {
+    'resource/**/server/*.lua'
+}
