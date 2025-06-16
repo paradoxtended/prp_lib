@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+/* Typing animation cursor */
+.typing-alert::after {
+  content: "|";
+  animation: blink-alert 1s infinite;
+}
+
+@keyframes blink-alert {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes flyIn-alert {
+    0% {
+        transform: translate(-50%, 300%);
+        opacity: 0;
+    }
+}
+
+@keyframes flyOut-alert {
+    0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 300%);
+        opacity: 0;
+    }
+}
+
+.container-alert {
+    font-family: 'Oswald', sans-serif;
+    color: #ffffff;
+    background-color: #122004e0;
+    width: 445px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    animation: flyIn-alert 250ms forwards;
+}
+
+.corners-alert {
+    width: 100%;
+    height: 100%;
+}
+
+.corners-alert .corner {
+    border: 2px solid #91e415;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.corner.left-up {
+    top: 0;
+    left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.corner.left-down {
+    bottom: 0;
+    left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+.corner.right-up {
+    top: 0;
+    right: 0;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.corner.right-down {
+    bottom: 0;
+    right: 0;
+    border-left: 0;
+    border-top: 0;
+}
+
+.wrapper-alert {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper-alert .title {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 15px auto;
+}
+
+.wrapper-alert .description {
+    margin: 0 auto;
+    padding: 0 15px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.wrapper-alert .buttons-alert {
+    margin: 20px auto;
+    display: flex;
+    gap: 10px;
+}
+
+.buttons-alert button {
+    font-family: 'Oswald', sans-serif;
+    color: #ffffff;
+    min-width: 90px;
+    min-height: 45px;
+    font-size: 17px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.buttons-alert .cancel {
+    background-color: #691616e0;
+    border: 1px solid #dc2626;
+}
+
+.buttons-alert .cancel:hover {
+    background-color: #450a0ae0;
+}
+
+.buttons-alert .confirm {
+    background-color: #3f6212e0;
+    border: 1px solid #a3e635;
+}
+
+.buttons-alert .confirm:hover {
+    background-color: #365314e0;
+}
