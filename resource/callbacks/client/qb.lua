@@ -3,7 +3,7 @@
 
 if GetResourceState('qb-core') ~= 'started' then return end
 
-Framework = { name = 'qb-core' }
+local Framework = { name = 'qb-core' }
 local sharedObject = exports['qb-core']:GetCoreObject()
 Framework.object = sharedObject
 
@@ -86,3 +86,5 @@ end
 Framework.deleteVehicle = sharedObject.Functions.DeleteVehicle
 
 Framework.getPlayersInArea = sharedObject.Functions.GetPlayersFromCoords
+
+return Framework

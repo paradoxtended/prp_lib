@@ -5,7 +5,7 @@ lib.locale()
 
 if GetResourceState('es_extended') ~= 'started' then return end
 
-Framework = { name = 'es_extended' }
+local Framework = { name = 'es_extended' }
 local sharedObject = exports['es_extended']:getSharedObject()
 Framework.object = sharedObject
 
@@ -103,3 +103,5 @@ Framework.spawnLocalVehicle = sharedObject.Game.SpawnLocalVehicle
 Framework.deleteVehicle = sharedObject.Game.DeleteVehicle
 
 Framework.getPlayersInArea = sharedObject.Game.GetPlayersInArea
+
+return Framework

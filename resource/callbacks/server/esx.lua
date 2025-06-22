@@ -5,7 +5,7 @@ lib.locale()
 
 if GetResourceState('es_extended') ~= 'started' then return end
 
-Framework = { name = 'es_extended' }
+local Framework = { name = 'es_extended' }
 local sharedObject = exports['es_extended']:getSharedObject()
 Framework.object = sharedObject
 ---@class Player
@@ -117,3 +117,5 @@ end
 function player:getLastName()
     return self.xPlayer.get('lastName')
 end
+
+return Framework

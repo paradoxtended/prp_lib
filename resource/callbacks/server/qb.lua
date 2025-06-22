@@ -3,7 +3,7 @@
 
 if GetResourceState('qb-core') ~= 'started' then return end
 
-Framework = { name = 'qb-core' }
+local Framework = { name = 'qb-core' }
 local sharedObject = exports['qb-core']:GetCoreObject()
 Framework.object = sharedObject
 QBCore = sharedObject
@@ -139,3 +139,5 @@ end
 function player:getLastName()
     return self.QBPlayer.PlayerData.charinfo.lastname
 end
+
+return Framework
