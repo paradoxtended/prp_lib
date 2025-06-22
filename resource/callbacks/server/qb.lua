@@ -12,7 +12,7 @@ QBCore = sharedObject
 ---@field QBPlayer any
 local player = {}
 
-function prp.getPlayerFromId(id)
+function Framework.getPlayerFromId(id)
     local player = setmetatable({}, { __index = player })
     player.QBPlayer = sharedObject.Functions.GetPlayer(id)
 
@@ -23,7 +23,7 @@ function prp.getPlayerFromId(id)
     return player
 end
 
-function prp.getPlayerFromIdentifier(identifier)
+function Framework.getPlayerFromIdentifier(identifier)
     local player = setmetatable({}, { __index = player })
     player.QBPlayer = sharedObject.Functions.GetPlayerByCitizenId(identifier)
 
@@ -34,15 +34,15 @@ function prp.getPlayerFromIdentifier(identifier)
     return player
 end
 
-prp.registerUsableItem = sharedObject.Functions.CreateUseableItem
+Framework.registerUsableItem = sharedObject.Functions.CreateUseableItem
 
-prp.getPlayers = sharedObject.Functions.GetQBPlayers
+Framework.getPlayers = sharedObject.Functions.GetQBPlayers
 
-function prp.getItemLabel(item)
+function Framework.getItemLabel(item)
     return exports.ox_inventory:Items()[item]?.label or 'ITEM_NOT_FOUND'
 end
 
-function prp.getItems()
+function Framework.getItems()
     return exports.ox_inventory:Items()
 end
 

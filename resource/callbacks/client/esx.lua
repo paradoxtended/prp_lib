@@ -28,33 +28,33 @@ RegisterNetEvent('esx:onPlayerLogout', function()
     sharedObject.PlayerData = {}
 end)
 
-prp.isPlayerLoaded = sharedObject.IsPlayerLoaded
+Framework.isPlayerLoaded = sharedObject.IsPlayerLoaded
 
-prp.onPlayerLoaded = function(cb)
-    if prp.isPlayerLoaded() then
+Framework.onPlayerLoaded = function(cb)
+    if Framework.isPlayerLoaded() then
         cb()
     end
 
     AddEventHandler('esx:playerLoaded', cb)
 end
 
-prp.onPlayerLogout = function(cb)
+Framework.onPlayerLogout = function(cb)
     AddEventHandler('esx:onPlayerLogout', cb)
 end
 
-prp.getJob = function()
-    if not prp.isPlayerLoaded() then
+Framework.getJob = function()
+    if not Framework.isPlayerLoaded() then
         return false
     end
 
     return sharedObject.GetPlayerData().job.name
 end
 
-function prp.getJobGrade()
+function Framework.getJobGrade()
     return sharedObject.GetPlayerData().job.grade
 end
 
-prp.hasItem = function(name)
+Framework.hasItem = function(name)
     local inventory = sharedObject.GetPlayerData().inventory
 
     for _, v in pairs(inventory) do
@@ -66,23 +66,23 @@ prp.hasItem = function(name)
     return false
 end
 
-prp.getIdentifier = function()
+Framework.getIdentifier = function()
     local playerData = sharedObject.GetPlayerData()
     return playerData.identifier
 end
 
-prp.getCharacterName = function()
+Framework.getCharacterName = function()
     local playerData = sharedObject.GetPlayerData()
     return (playerData.firstName or playerData.firstname) .. ' ' .. (playerData.lastName or playerData.lastname)
 end
 
-prp.getInventory = function()
+Framework.getInventory = function()
     return sharedObject.GetPlayerData().inventory
 end
 
 ---@param name 'hunger' | 'thirst'
 ---@return integer
-prp.getStatus = function(name)
+Framework.getStatus = function(name)
     local status = 0
     TriggerEvent('esx_status:getStatus', name, function(stats) status = stats.val end)
 
@@ -90,16 +90,16 @@ prp.getStatus = function(name)
 end
 
 ---@param values table<'hunger' | 'thirst', integer>
-prp.setStatus = function(values)
+Framework.setStatus = function(values)
     for name, value in pairs(values) do
         if value > 0 then TriggerEvent('esx_status:add', name, value) else TriggerEvent('esx_status:remove', name, -value) end
     end
 end
 
-prp.spawnVehicle = sharedObject.Game.SpawnVehicle
+Framework.spawnVehicle = sharedObject.Game.SpawnVehicle
 
-prp.spawnLocalVehicle = sharedObject.Game.SpawnLocalVehicle
+Framework.spawnLocalVehicle = sharedObject.Game.SpawnLocalVehicle
 
-prp.deleteVehicle = sharedObject.Game.DeleteVehicle
+Framework.deleteVehicle = sharedObject.Game.DeleteVehicle
 
-prp.getPlayersInArea = sharedObject.Game.GetPlayersInArea
+Framework.getPlayersInArea = sharedObject.Game.GetPlayersInArea

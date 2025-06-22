@@ -13,7 +13,7 @@ Framework.object = sharedObject
 ---@field xPlayer any
 local player = {}
 
-prp.getPlayerFromId = function(id)
+Framework.getPlayerFromId = function(id)
     local player = setmetatable({}, { __index = player })
     player.xPlayer = sharedObject.GetPlayerFromId(id)
     
@@ -24,7 +24,7 @@ prp.getPlayerFromId = function(id)
     return player
 end
 
-function prp.getPlayerFromIdentifier(identifier)
+function Framework.getPlayerFromIdentifier(identifier)
     local player = setmetatable({}, { __index = player })
     player.xPlayer = sharedObject.GetPlayerFromIdentifier(identifier)
 
@@ -35,15 +35,15 @@ function prp.getPlayerFromIdentifier(identifier)
     return player
 end
 
-prp.registerUsableItem = sharedObject.RegisterUsableItem
+Framework.registerUsableItem = sharedObject.RegisterUsableItem
 
-prp.getPlayers = sharedObject.GetExtendedPlayers
+Framework.getPlayers = sharedObject.GetExtendedPlayers
 
-function prp.getItemLabel(item)
+function Framework.getItemLabel(item)
     return exports.ox_inventory:Items()[item]?.label or 'ITEM_NOT_FOUND'
 end
 
-function prp.getItems()
+function Framework.getItems()
     return exports.ox_inventory:Items()
 end
 

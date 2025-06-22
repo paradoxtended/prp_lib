@@ -7,45 +7,45 @@ Framework = { name = 'qb-core' }
 local sharedObject = exports['qb-core']:GetCoreObject()
 Framework.object = sharedObject
 
-function prp.isPlayerLoaded()
+function Framework.isPlayerLoaded()
     return next(sharedObject.Functions.GetPlayerData()) ~= nil
 end
 
-prp.onPlayerLoaded = function(cb)
-    if prp.isPlayerLoaded() then
+Framework.onPlayerLoaded = function(cb)
+    if Framework.isPlayerLoaded() then
         cb()
     end
 
     AddEventHandler('QBCore:Client:OnPlayerLoaded', cb)
 end
 
-prp.onPlayerLogout = function(cb)
+Framework.onPlayerLogout = function(cb)
     AddEventHandler('QBCore:Client:OnPlayerUnload', cb)
 end
 
-function prp.getJob()
-    if not prp.isPlayerLoaded() then
+function Framework.getJob()
+    if not Framework.isPlayerLoaded() then
         return false
     end
 
     return sharedObject.Functions.GetPlayerData().job.name
 end
 
-function prp.getJobGrade()
+function Framework.getJobGrade()
     return sharedObject.Functions.GetPlayerData().job.grade.level
 end
 
-prp.hasItem = function(name)
+Framework.hasItem = function(name)
     return exports.ox_inventory:GetItemCount(name) > 0
 end
 
-prp.getInventory = function()
+Framework.getInventory = function()
     return sharedObject.Functions.GetPlayerData().items
 end
 
 ---@param name 'hunger' | 'thirst'
 ---@return integer
-prp.getStatus = function(name)
+Framework.getStatus = function(name)
     local playerState = sharedObject.Functions.GetPlayerData()
 
     -- compatibility for ESX style values
@@ -53,7 +53,7 @@ prp.getStatus = function(name)
 end
 
 ---@param values table<'hunger' | 'thirst', integer>
-prp.setStatus = function(values)
+Framework.setStatus = function(values)
     local playerState = sharedObject.Functions.GetPlayerData()
     for name, value in pairs(values) do
         -- compatibility for ESX style values
@@ -65,24 +65,24 @@ prp.setStatus = function(values)
     end
 end
 
-function prp.spawnVehicle(model, coords, heading, cb)
+function Framework.spawnVehicle(model, coords, heading, cb)
     sharedObject.Functions.SpawnVehicle(model, cb, vector4(coords.x, coords.y, coords.z, heading), true)
 end
 
-function prp.spawnLocalVehicle(model, coords, heading, cb)
+function Framework.spawnLocalVehicle(model, coords, heading, cb)
     sharedObject.Functions.SpawnVehicle(model, cb, vector4(coords.x, coords.y, coords.z, heading), false)
 end
 
-prp.getIdentifier = function()
+Framework.getIdentifier = function()
     local playerData = sharedObject.Functions.GetPlayerData()
     return playerData.citizenid
 end
 
-prp.getCharacterName = function()
+Framework.getCharacterName = function()
     local playerData = sharedObject.Functions.GetPlayerData()
     return playerData.charinfo.firstname .. ' ' .. playerData.charinfo.lastname
 end
 
-prp.deleteVehicle = sharedObject.Functions.DeleteVehicle
+Framework.deleteVehicle = sharedObject.Functions.DeleteVehicle
 
-prp.getPlayersInArea = sharedObject.Functions.GetPlayersFromCoords
+Framework.getPlayersInArea = sharedObject.Functions.GetPlayersFromCoords
