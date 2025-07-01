@@ -52,6 +52,14 @@ function player:hasGroup(name)
 end
 
 function player:hasOneOfGroups(groups)
+    if type(groups) == 'table' and table.type(groups) == 'array' then
+        for _, group in ipairs(groups) do
+            if group == self.xPlayer.getGroup() then
+                return true
+            end
+        end
+    end
+
     return groups[self.xPlayer.getGroup()] or false
 end
 
