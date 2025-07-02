@@ -113,11 +113,11 @@ function player:removeAccountMoney(account, amount)
 end
 
 function player:getJob()
-    return self.QBPlayer.PlayerData.job.name
+    return self.QBPlayer.PlayerData.job.name, self.QBPlayer.PlayerData.job.label
 end
 
 function player:getJobGrade()
-    return self.QBPlayer.PlayerData.job.grade.level
+    return self.QBPlayer.PlayerData.job.grade.level, self.QBPlayer.PlayerData.job.grade.name
 end
 
 function player:setJob(name, grade)

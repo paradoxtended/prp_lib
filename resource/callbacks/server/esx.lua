@@ -103,11 +103,11 @@ function player:removeAccountMoney(account, amount)
 end
 
 function player:getJob()
-    return self.xPlayer.getJob().name
+    return self.xPlayer.getJob().name, self.xPlayer.getJob().label
 end
 
 function player:getJobGrade()
-    return self.xPlayer.getJob().grade
+    return self.xPlayer.getJob().grade, self.xPlayer.getJob().grade_label
 end
 
 function player:setJob(name, grade)
