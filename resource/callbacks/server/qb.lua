@@ -140,4 +140,26 @@ function player:getLastName()
     return self.QBPlayer.PlayerData.charinfo.lastname
 end
 
+function player:updateNames(firstname, lastname)
+    if not firstname and not lastname then return end
+
+    local charinfo = self.QBPlayer.PlayerData.charinfo
+
+    if firstname then
+        local edit = firstname:gsub("^%l", string.upper)
+        charinfo.firstname = edit
+    end
+
+    if lastname then
+        local edit = lastname:gsub("^%l", string.upper)
+        charinfo.lastname = edit
+    end
+
+    self.QBPlayer.Functions.SetPlayerData('charinfo', charinfo)
+    self.QBPlayer.Functions.Save()
+    self.QBPlayer.Functions.UpdatePlayerData(false)
+
+    TriggerClientEvent('QBCore:Player:UpdatePlayerData', player.source)
+end
+
 return Framework

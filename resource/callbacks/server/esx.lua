@@ -126,4 +126,22 @@ function player:getLastName()
     return self.xPlayer.get('lastName')
 end
 
+function player:updateNames(firstname, lastname)
+    if not firstname and not lastname then return end
+
+    if firstname then
+        local edit = firstname:gsub("^%l", string.upper)
+        self.xPlayer.setName(('%s %s'):format(edit, self.xPlayer.get('lastName')))
+        self.xPlayer.set('firstName', edit)
+    end
+
+    if lastname then
+        local edit = lastname:gsub("^%l", string.upper)
+        self.xPlayer.setName(('%s %s'):format(self.xPlayer.get('firstName'), edit))
+        self.xPlayer.set('lastName', edit)
+    end
+
+    MySQL.query.await("UPDATE users SET firstname = ?, lastname = ? WHERE identifier = ?", { self.xPlayer.get('firstName'), self.xPlayer.get('lastName'), self.xPlayer.getIdentifier() })
+end
+
 return Framework
