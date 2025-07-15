@@ -51,6 +51,14 @@ function player:hasGroup(name)
 end
 
 function player:hasOneOfGroups(groups)
+    if type(groups) == 'table' and table.type(groups) == 'array' then
+        for _, name in ipairs(groups) do
+            if sharedObject.Functions.HasPermission(self.source, name) == name then
+                return true
+            end
+        end
+    end
+
     for k,v in pairs(groups) do
         if sharedObject.Functions.HasPermission(self.source, k) then
             return true
@@ -114,6 +122,18 @@ end
 
 function player:getJob()
     return self.QBPlayer.PlayerData.job.name, self.QBPlayer.PlayerData.job.label
+end
+
+function player:hasOneOfJobs(jobs)
+    if type(jobs) == 'table' and table.type(jobs) == 'array' then
+        for _, job in ipairs(jobs) do
+            if job == self.QBPlayer.PlayerData.job.name then
+                return true
+            end
+        end
+    end
+
+    return jobs[self.QBPlayer.PlayerData.job.name] or false
 end
 
 function player:getJobGrade()

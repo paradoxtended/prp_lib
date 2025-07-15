@@ -106,6 +106,18 @@ function player:getJob()
     return self.xPlayer.getJob().name, self.xPlayer.getJob().label
 end
 
+function player:hasOneOfJobs(jobs)
+    if type(jobs) == 'table' and table.type(jobs) == 'array' then
+        for _, job in ipairs(jobs) do
+            if job == self.xPlayer.getJob().name then
+                return true
+            end
+        end
+    end
+
+    return jobs[self.xPlayer.getJob().name] or false
+end
+
 function player:getJobGrade()
     return self.xPlayer.getJob().grade, self.xPlayer.getJob().grade_label
 end
