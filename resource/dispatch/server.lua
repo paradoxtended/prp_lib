@@ -2,7 +2,7 @@ local function isStarted(resource)
     return GetResourceState(resource) == 'started'
 end
 
-Dispatch = {}
+local Dispatch = {}
 
 --This function dispatches all the calls
 function Dispatch.call(coords, data, jobs)
@@ -94,4 +94,4 @@ function Dispatch.call(coords, data, jobs)
     end
 end
 
-_ENV.Dispatch = Dispatch
+return Dispatch
