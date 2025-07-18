@@ -28,10 +28,12 @@ shared_scripts {
 }
 
 client_scripts {
-    'resource/**/client/*.lua'
+    'resource/**/client/*.lua',
+    'resource/**/client.lua'
 }
 
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
-    'resource/**/server/*.lua'
+    'resource/**/server/*.lua',
+    'resource/**/server.lua'
 }
