@@ -76,7 +76,7 @@ jobs:
           mkdir -p ./temp/prp_lib
           mkdir -p ./temp/prp_lib/web
           cp ./{fxmanifest.lua,init.lua} ./temp/prp_lib
-          cp -r ./{resource} ./temp/prp_lib
+          cp -r resource ./temp/prp_lib
           cp -r ./web/build ./temp/prp_lib/web/build
           cd ./temp && zip -r ../prp_lib.zip ./prp_lib
 
