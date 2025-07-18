@@ -4,7 +4,7 @@ lua54 'yes'
 game 'gta5'
 name 'prp_lib'
 author 'Paradox'
-version '0.1.4'
+version '0.2.0'
 repository 'https://github.com/hi-i-am-andrew/prp_lib'
 description 'A library of shared functions to utilise in other resources.'
 
