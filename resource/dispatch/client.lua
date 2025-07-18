@@ -56,10 +56,10 @@ AddEventHandler('prp_lib:dispatch:call', function(coords, data, jobs)
             icon = 'shield-halved',
         })
         local blip = createBlip(coords, {
-            Name = data.Title,
-            Sprite = data.Sprite or 161, 
-            Size = 2.0, 
-            Color = 0
+            name = data.Title,
+            sprite = data.Sprite or 161, 
+            scale = 2.0, 
+            color = 0
         })
         Citizen.SetTimeout(30000, function()
             RemoveBlip(blip)

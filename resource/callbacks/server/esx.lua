@@ -5,7 +5,7 @@ lib.locale()
 
 if GetResourceState('es_extended') ~= 'started' then return end
 
-local Framework = { name = 'es_extended' }
+Framework = { name = 'es_extended' }
 local sharedObject = exports['es_extended']:getSharedObject()
 Framework.object = sharedObject
 ---@class Player

@@ -3,7 +3,7 @@
 
 if GetResourceState('qb-core') ~= 'started' then return end
 
-local Framework = { name = 'qb-core' }
+Framework = { name = 'qb-core' }
 local sharedObject = exports['qb-core']:GetCoreObject()
 Framework.object = sharedObject
 
