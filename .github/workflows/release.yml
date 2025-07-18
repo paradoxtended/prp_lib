@@ -38,14 +38,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.x
-          cache: "npm"
+          cache: "pnpm"
+          cache-dependency-path: "web/package-lock.json"
 
       - name: Install dependencies
-        run: npm i --frozen-lockfile
+        run: pnpm i --frozen-lockfile
         working-directory: web
 
       - name: Run build
-        run: npm build
+        run: pnpm build
         working-directory: web
         env:
           CI: false
