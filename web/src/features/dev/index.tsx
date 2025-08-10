@@ -7,6 +7,7 @@ import { debugCircleProgressbar, debugProgressbar } from './debug/progress';
 import { debugTextUI } from './debug/textui';
 import { useState } from 'react';
 import LibIcon from '../../components/LibIcon';
+import { debugObjective } from './debug/objective';
 
 const Dev: React.FC = () => {
   const [opened, setOpened] = useState(false);
@@ -54,6 +55,9 @@ const Dev: React.FC = () => {
           <Divider />
           <Button fullWidth onClick={() => debugTextUI()}>
             Show TextUI
+          </Button>
+          <Button fullWidth onClick={() => debugObjective()}>
+            Show Objective
           </Button>
           <Divider />
         </Stack>

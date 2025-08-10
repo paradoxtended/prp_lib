@@ -1,0 +1,56 @@
+#objective {
+  position: absolute;
+  top: 45.0%;
+  left: 20px;
+  width: 250px;
+  border-radius: 10px;
+  opacity: 1.0;
+  transition: all linear 300ms;
+  font-family: 'Montserrat';
+}
+
+#objective.hidden {
+  opacity: 0.0;
+  transition: all linear 300ms;
+}
+
+#objective .objective-title {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #16cc80 0%, #0ce48a 80%);
+  background-clip: text;
+  text-align: center;
+  width: fit-content;
+  max-width: 230px;
+  margin: 10px auto;
+  padding: 10px 16px;
+  /* box-shadow: 0px 5px 7px -7px #76cd65a1; /* Adjusted to match the title's visibility */ 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 0px 10px #0f9e62a1) drop-shadow(0px 0px 5px #097c4ca1) drop-shadow(0px 0px 5px #097246b9) ; /* Darker and more opaque */
+}
+
+#objective .objective-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    height: 2px; width: 60%;
+    background-color: #16cc80;
+}
+
+#objective .objective-content {
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: break-spaces;
+  width: 250px;
+  padding: 10px 8px;
+  line-height: 28px;
+  color: #ffffff;
+  background: rgba(132, 132, 132, 0.4);
+  border: solid rgba(181, 181, 181, 0.35) 1px;
+  border-radius: 6px;
+}

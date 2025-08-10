@@ -8,6 +8,7 @@ import InputDialog from './features/dialog/inputDialog/InputDialog'
 import { createTheme, MantineProvider } from '@mantine/core';
 import Dev from './features/dev';
 import { isEnvBrowser } from './utils/misc';
+import Objective from './features/objective/Objective';
 
 const theme = createTheme({
     fontFamily: 'Montserrat, sans-serif',
@@ -24,6 +25,7 @@ const App: React.FC = () => {
             <ContextMenu />
             <AlertDialog />
             <InputDialog />
+            <Objective />
             {isEnvBrowser() && <Dev />}
         </MantineProvider>
     )
